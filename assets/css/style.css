@@ -1,0 +1,44 @@
+
+.box {
+	position: relative;
+	float: left;
+	width: 30vw;
+	height: 100%;
+	padding: 1%;
+	text-align: center;
+	background: #EC1D23;
+	border-radius: 2vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#gameboard {
+	position: relative;
+	width: 70%;
+	height: 15vw;
+	margin: 2vw auto;
+}
+
+.player1 {
+    margin-right: 30px;
+}
+
+img {
+	height: 250px;
+}
+
+h3 {
+	color: white;
+}
+
+button {
+	font-size:48px;
+	color:white;
+	background-color: #EC1D23;
+	border: none;
+}
+
+button:hover {
+	cursor: pointer;
+}

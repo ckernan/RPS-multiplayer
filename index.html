@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiplayer Rock Paper Scissors Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="text-center">
+            <img src='assets/images/rps-tiles.jpg'>
+        </div>
+
+
+        <div class="text-center">
+            <h2>Enter your name to begin: </h2>
+            <input type="text" id="name" name="name" placeholder="Player Name" required="required">
+            <button type="button" id="button" class="btn btn-primary">SUBMIT</button>
+        </div>
+
+        <div class="row" id="gameboard">
+            <div class="box player1 col-md-5">
+                <h3>Player 1</h3>
+                <button><i class="fa fa-hand-rock-o"></i></button>
+                <button><i class="fa fa-hand-paper-o"></i></button>
+                <button><i class="fa fa-hand-scissors-o"></i></button>
+            </div>
+            <div class="box player2 col-md-5">
+                <h3>Player 2</h3>
+                <button><i class="fa fa-hand-rock-o"></i></button>
+                <button><i class="fa fa-hand-paper-o"></i></button>
+                <button><i class="fa fa-hand-scissors-o"></i></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <ul id="chat-log"></ul>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="message">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" id="chat" type="submit"> CHAT WITH YOUR OPPONENT</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script>
+        //Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD57mpiCb94D-OoURYsN90FDCIw4wIrSQQ",
+            authDomain: "rps-multiplayer-5001d.firebaseapp.com",
+            databaseURL: "https://rps-multiplayer-5001d.firebaseio.com",
+            projectId: "rps-multiplayer-5001d",
+            storageBucket: "",
+            messagingSenderId: "1011081787788"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
+</body>
