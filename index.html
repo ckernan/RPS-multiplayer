@@ -8,6 +8,19 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script>
+        //Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD57mpiCb94D-OoURYsN90FDCIw4wIrSQQ",
+            authDomain: "rps-multiplayer-5001d.firebaseapp.com",
+            databaseURL: "https://rps-multiplayer-5001d.firebaseio.com",
+            projectId: "rps-multiplayer-5001d",
+            storageBucket: "",
+            messagingSenderId: "1011081787788"
+        };
+        firebase.initializeApp(config);
+    </script>
 </head>
 
 <body>
@@ -18,23 +31,43 @@
 
 
         <div class="text-center">
-            <h2>Enter your name to begin: </h2>
+            <h1>Enter your name to begin: </h1>
             <input type="text" id="name" name="name" placeholder="Player Name" required="required">
             <button type="button" id="button" class="btn btn-primary">SUBMIT</button>
         </div>
 
         <div class="row" id="gameboard">
             <div class="box player1 col-md-5">
-                <h3>Player 1</h3>
-                <button><i class="fa fa-hand-rock-o"></i></button>
-                <button><i class="fa fa-hand-paper-o"></i></button>
-                <button><i class="fa fa-hand-scissors-o"></i></button>
+                <div id="player-1-name">
+                    <h2>Player 1</h2>
+                </div>
+                <div id="player-1-choice">
+                    <button>
+                        <i class="fa fa-hand-rock-o" data-choice="rock"></i>
+                    </button>
+                    <button>
+                        <i class="fa fa-hand-paper-o" data-choice="paper"></i>
+                    </button>
+                    <button>
+                        <i class="fa fa-hand-scissors-o" data-choice="scissors"></i>
+                    </button>
+                </div>
             </div>
             <div class="box player2 col-md-5">
-                <h3>Player 2</h3>
-                <button><i class="fa fa-hand-rock-o"></i></button>
-                <button><i class="fa fa-hand-paper-o"></i></button>
-                <button><i class="fa fa-hand-scissors-o"></i></button>
+                <div id="player-2-name">
+                    <h2>Player 2</h2>
+                </div>
+                <div id="player-2-choice">
+                    <button>
+                        <i class="fa fa-hand-rock-o" data-choice="rock"></i>
+                    </button>
+                    <button>
+                        <i class="fa fa-hand-paper-o" data-choice="paper"></i>
+                    </button>
+                    <button>
+                        <i class="fa fa-hand-scissors-o" data-choice="scissors"></i>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -54,19 +87,9 @@
 
 
 
-    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
-    <script>
-        //Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyD57mpiCb94D-OoURYsN90FDCIw4wIrSQQ",
-            authDomain: "rps-multiplayer-5001d.firebaseapp.com",
-            databaseURL: "https://rps-multiplayer-5001d.firebaseio.com",
-            projectId: "rps-multiplayer-5001d",
-            storageBucket: "",
-            messagingSenderId: "1011081787788"
-        };
-        firebase.initializeApp(config);
-    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
+
+</html>
