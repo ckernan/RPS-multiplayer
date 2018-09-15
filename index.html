@@ -4,8 +4,7 @@
 <head>
     <title>Multiplayer Rock Paper Scissors Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
@@ -33,7 +32,7 @@
         <div class="text-center">
             <h1>Enter your name to begin: </h1>
             <input type="text" id="name" name="name" placeholder="Player Name" required="required">
-            <button type="button" id="button" class="btn btn-primary">SUBMIT</button>
+            <button type="button" id="submit" class="btn btn-primary">SUBMIT</button>
         </div>
 
         <div class="row" id="gameboard">
@@ -71,17 +70,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2"></div>
+            <div class="offset-2"></div>
             <div class="col-sm-8">
                 <ul id="chat-log"></ul>
                 <div class="input-group">
                     <input type="text" class="form-control" id="message">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" id="chat" type="submit"> CHAT WITH YOUR OPPONENT</button>
+                        <button class="btn btn-primary" id="chat" type="submit">CHAT WITH YOUR OPPONENT</button>
                     </span>
                 </div>
             </div>
-            <div class="col-sm-2"></div>
+            <div class="offset-2"></div>
         </div>
     </div>
 
