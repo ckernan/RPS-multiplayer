@@ -2,12 +2,11 @@
 .box {
 	position: relative;
 	float: left;
-	width: 30vw;
 	height: 100%;
 	padding: 1%;
 	text-align: center;
 	background: #EC1D23;
-	border-radius: 2vw;
+	border-radius: 30px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -16,8 +15,8 @@
 #gameboard {
 	position: relative;
 	width: 70%;
-	height: 15vw;
-	margin: 2vw auto;
+	height: 200px;
+	margin: 25px auto;
 }
 
 .player1 {
@@ -43,6 +42,14 @@ button:hover {
 	cursor: pointer;
 }
 
-.hide {
-	display: none;
+input {
+	margin-bottom: 15px
 }
+
+/*#results {
+	color: blue;
+}*/
+
+/* .hide { 
+	display: none; 
+ } */
