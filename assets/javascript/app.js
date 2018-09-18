@@ -13,6 +13,7 @@ $(function () {
     var userRef = database.ref("/users");
     var player1Ref = database.ref("/users/player1");
     var player2Ref = database.ref("/users/player2");
+    
 
     userRef.on('value', function (snapshot) {
         if (snapshot.child("player1").exists()) {
@@ -135,5 +136,9 @@ $(function () {
             $("#player-1-choice").hide();
         }
     });
+
+    player1Ref.onDisconnect().remove();
+    player2Ref.onDisconnect().remove();
+
 })
 
