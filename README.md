@@ -1,6 +1,6 @@
 # RPS Multiplayer
 
-Two player rock, paper, scissors game made with firebase.  
+Two player rock, paper, scissors game made with firebase. Access the deployed app [here](https://ckernan.github.io/RPS-multiplayer/).
 
 ## How It Works
 
