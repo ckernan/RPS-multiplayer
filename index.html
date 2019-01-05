@@ -1,98 +1,111 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Multiplayer Rock Paper Scissors Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
     <script>
-        //Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyD57mpiCb94D-OoURYsN90FDCIw4wIrSQQ",
-            authDomain: "rps-multiplayer-5001d.firebaseapp.com",
-            databaseURL: "https://rps-multiplayer-5001d.firebaseio.com",
-            projectId: "rps-multiplayer-5001d",
-            storageBucket: "",
-            messagingSenderId: "1011081787788"
-        };
-        firebase.initializeApp(config);
+      //Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD57mpiCb94D-OoURYsN90FDCIw4wIrSQQ",
+        authDomain: "rps-multiplayer-5001d.firebaseapp.com",
+        databaseURL: "https://rps-multiplayer-5001d.firebaseio.com",
+        projectId: "rps-multiplayer-5001d",
+        storageBucket: "",
+        messagingSenderId: "1011081787788"
+      };
+      firebase.initializeApp(config);
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container-fluid">
-        <div class="text-center">
-            <img src='assets/images/rps-tiles.jpg'>
-        </div>
+      <div class="header text-center">
+        <img src="assets/images/RPS-ICONS.png" />
+      </div>
 
+      <div class="text-center">
+        <h1>Enter your name to begin:</h1>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Player Name"
+          required="required"
+        />
+        <button type="button" id="submit" class="btn btn-primary">
+          SUBMIT
+        </button>
+      </div>
+      <div class="text-center text-primary" id="results"></div>
+      <!-- <div class="text-center" id="results-2"> -->
+      <!-- </div> -->
 
-        <div class="text-center">
-            <h1>Enter your name to begin: </h1>
-            <input type="text" id="name" name="name" placeholder="Player Name" required="required">
-            <button type="button" id="submit" class="btn btn-primary">SUBMIT</button>
+      <div class="row" id="gameboard">
+        <div class="box player1 col-md-5">
+          <div id="player-1-name"><h2>Waiting for player 1...</h2></div>
+          <div id="player-1-choice" class="hide">
+            <button>
+              <i class="fa fa-hand-rock-o p1-choice" data-choice="rock"></i>
+            </button>
+            <button>
+              <i class="fa fa-hand-paper-o p1-choice" data-choice="paper"></i>
+            </button>
+            <button>
+              <i
+                class="fa fa-hand-scissors-o p1-choice"
+                data-choice="scissors"
+              ></i>
+            </button>
+          </div>
         </div>
-        <div class="text-center text-primary" id="results">
+        <div class="box player2 col-md-5">
+          <div id="player-2-name"><h2>Waiting for player 2...</h2></div>
+          <div id="player-2-choice" class="hide">
+            <button>
+              <i class="fa fa-hand-rock-o p2-choice" data-choice="rock"></i>
+            </button>
+            <button>
+              <i class="fa fa-hand-paper-o p2-choice" data-choice="paper"></i>
+            </button>
+            <button>
+              <i
+                class="fa fa-hand-scissors-o p2-choice"
+                data-choice="scissors"
+              ></i>
+            </button>
+          </div>
         </div>
-        <!-- <div class="text-center" id="results-2"> -->
-        <!-- </div> -->
-
-        <div class="row" id="gameboard">
-            <div class="box player1 col-md-5">
-                <div id="player-1-name">
-                    <h2>Waiting for player 1...</h2>
-                </div>
-                <div id="player-1-choice" class="hide">
-                    <button>
-                        <i class="fa fa-hand-rock-o p1-choice" data-choice="rock"></i>
-                    </button>
-                    <button>
-                        <i class="fa fa-hand-paper-o p1-choice" data-choice="paper"></i>
-                    </button>
-                    <button>
-                        <i class="fa fa-hand-scissors-o p1-choice" data-choice="scissors"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="box player2 col-md-5">
-                <div id="player-2-name">
-                    <h2>Waiting for player 2...</h2>
-                </div>
-                <div id="player-2-choice" class="hide">
-                    <button>
-                        <i class="fa fa-hand-rock-o p2-choice" data-choice="rock"></i>
-                    </button>
-                    <button>
-                        <i class="fa fa-hand-paper-o p2-choice" data-choice="paper"></i>
-                    </button>
-                    <button>
-                        <i class="fa fa-hand-scissors-o p2-choice" data-choice="scissors"></i>
-                    </button>
-                </div>
-            </div>
+      </div>
+      <div class="row">
+        <div class="offset-2"></div>
+        <div class="col-sm-8">
+          <ul id="chat-log"></ul>
+          <div class="input-group">
+            <input type="text" class="form-control" id="message" />
+            <span class="input-group-btn">
+              <button class="btn btn-primary" id="chat" type="submit">
+                CHAT WITH YOUR OPPONENT
+              </button>
+            </span>
+          </div>
         </div>
-        <div class="row">
-            <div class="offset-2"></div>
-            <div class="col-sm-8">
-                <ul id="chat-log"></ul>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="message">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" id="chat" type="submit">CHAT WITH YOUR OPPONENT</button>
-                    </span>
-                </div>
-            </div>
-            <div class="offset-2"></div>
-        </div>
+        <div class="offset-2"></div>
+      </div>
     </div>
-
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
-</body>
-
+  </body>
 </html>
